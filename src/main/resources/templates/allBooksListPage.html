@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8" />
+<title>Library Page</title>
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/datatables/css/dataTables.bootstrap4.min.css}" />
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: yellow;
+  color: black;
+}
+</style>
+</head>
+<body style="background-color:#eeeee4">
+<h1 style="color:blue;text-align:center;">Here is the library:</h1>
+
+<div class="container">
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-top: 10px;">
+	
+			<table class="table table-image table-responsive" id="productListTable">
+				<thead>
+					<tr style="text-align: center; vertical-align: middle;">
+						<th scope="col">Book Id</th>
+						<th scope="col">Book Title</th>
+						<th scope="col">Author Name</th>
+						<th scope="col">Category</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="book : ${bookList}"
+						style="text-align: center; vertical-align: middle;">
+						<td><span th:text="${book.bookId}"
+							style="font-weight: bold; color: #0e8ce4;"></span></td>
+						<td><span th:text="${book.bookName}"
+							style="font-weight: bold; color: #0e8ce4;"></span></td>
+							
+						<td><span th:text="${book.authorName}"
+							style="font-weight: bold; color: #0e8ce4;"></span></td>
+						<td><span th:text="${book.category}"
+							style="font-weight: bold; color: #0e8ce4;"></span></td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</div>
+</div>
+
+<div class="buttons" style="text-align:center;margin-top:100px;">
+  <h2 style="text-align:center;">Return to homepage:</h2>
+  	<form action="/">
+    	<input class ="button" type="submit" value="Go to home page" />
+	</form>
+</div>
+
+<div th:fragment="bottom-scripts">
+
+	<script src="/jquery/jquery-3.4.1.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script th:src="@{/datatables/js/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/datatables/js/dataTables.bootstrap4.min.js}"></script>
+</div>
+<script>
+			$(document).ready(function() {
+				$('#productListTable').DataTable({
+					"lengthMenu": [
+						[10, 25, 50, -1], [10, 25, 50, "All"]
+						]
+				});
+			});
+		</script>
+</body>
+</html>

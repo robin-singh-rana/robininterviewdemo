@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.formInput {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+</head>
+<body bgcolor="#eeeee4">
+<h1 style="color:green;text-align:center;">Add book details</h1>
+
+<div class="formInput">
+  <form action="/book/addBook" method="post">
+    <label for="bookName">Book Name</label>
+    <input class="input" type="text" id="bookName" name="bookName" required="required" pattern="[a-zA-Z0-9\s]+" placeholder="Book Name..">
+
+    <label for="authorName">Author Name</label>
+    <input class="input" type="text" id="authorName" name="authorName" required="required" pattern="[a-zA-Z0-9\s]+" placeholder="Book's author name">
+
+    <label for="category">Category</label>
+    <select id="category" name="category">
+      <option value="Technical">Technical</option>
+      <option value="Literature">Literature</option>
+      <option value="Humor">Humor</option>
+      <option value="Poetry">Poetry</option>
+      <option value="Science">Science</option>
+      <option value="Fiction">Fiction</option>
+    </select>
+  
+    <input class="input" type="submit" value="Submit">
+  </form>
+</div>
+
+<div class="buttons" style="text-align:center;">
+  <h2 style="text-align:center;">Return to homepage:</h2>
+  	<form action="/">
+    	<input class ="button" type="submit" value="Go to home page" />
+	</form>
+</div>
+</body>
+</html>
