@@ -6,9 +6,9 @@ import com.robinbookstore.models.Book;
 
 public interface BookSearchServiceInterface {
 	
-	Book searchByBookId(int id);
+	Book searchByBookId(int bookId);
 	
-	List<Book> searchByCategory(String category);
+	List<Book> searchByCategory(String bookCategory);
 	
-	List<Book> searchByAuthorName(String name);
+	List<Book> searchByAuthorName(String authorName);
 }

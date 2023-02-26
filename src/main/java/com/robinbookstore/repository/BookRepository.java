@@ -12,13 +12,13 @@ public interface BookRepository extends CrudRepository<Book, Integer>{
 
 	Book findById(int bookId);
 	
-	List<Book> findByCategory(String category);
+	List<Book> findByCategory(String bookCategory);
 	
 	List<Book> findByAuthorName(String authorName);
 	
 	List<Book> findAll();
 	
-	void deleteById(Integer bookId);
+	void deleteById(int bookId);
 	
 	Book save(Book book);
 }
